@@ -2,6 +2,7 @@
   "name": "ssr",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "author": "vlad88vlad",
   "license": "ISC",
   "proxy": "http://localhost:8081/",
@@ -11,6 +12,7 @@
   },
   "scripts": {
     "clean": "rimraf build",
+    "postinstall": "husky install",
     "precommit": "lint-staged",
     "server": "node index.js",
     "build": "cross-env NODE_ENV=\"production\" BABEL_ENV=\"production\" webpack --mode production",
@@ -25,8 +27,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --ext .js,.jsx,.ts,.tsx",
-      "git add"
+      "eslint --ext .js,.jsx,.ts,.tsx"
     ]
   },
   "browserslist": [
