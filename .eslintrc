@@ -1,0 +1,175 @@
+{
+  "settings": {
+    "react": { "version": "detect" },
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/extensions": [
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx"
+    ],
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "typescript": {
+        "baseUrl": "./srs"
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "document": "readonly",
+    "btoa": "readonly",
+    "window": "writable",
+    "globalThis": false
+  },
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-async-promise-executor": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/require-default-props": "off",
+    "template-curly-spacing": "off",
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "react/prop-types": 1,
+    "indent": [
+      "error",
+      4,
+      {
+        "ignoredNodes": [
+          "TemplateLiteral"
+        ],
+        "SwitchCase": 1
+      }
+    ],
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
+    "no-shadow": 0,
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": 0,
+    "no-bitwise": 1,
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": [
+          "const",
+          "let",
+          "var"
+        ]
+      }
+    ],
+    "newline-before-return": 2,
+    "react/jsx-indent-props": [
+      2,
+      "first"
+    ],
+    "react/prefer-stateless-function": [
+      "warn"
+    ],
+    "react/jsx-indent": [
+      2,
+      4
+    ],
+    "react/destructuring-assignment": 0,
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "htmlFor": [
+          "HtmlFor"
+        ]
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": [
+          "Label"
+        ],
+        "required": {
+          "every": [
+            "id"
+          ]
+        },
+        "allowChildren": false
+      }
+    ]
+  }
+}

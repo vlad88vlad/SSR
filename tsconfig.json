@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "target": "es6", // es6 / es5
+        "module": "esnext",// esnext / commonjs
+        "baseUrl": "./src",// ./src /src
+        "jsx": "react",// preserve /  react
+        "strict": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": false,
+        "forceConsistentCasingInFileNames": true,
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": true,
+        "moduleResolution": "node",
+        "noEmit": false,
+        "typeRoots": [
+            "./node_modules/@types/"
+        ],
+        "resolveJsonModule": true,
+        "isolatedModules": true
+    },
+    "include": [
+        "./src",
+        "./webpack",
+        "./server"
+    ],
+    "exclude": [
+        "typings/browser.d.ts",
+        "typings/browser",
+        "node_modules",
+        "typings"
+    ]
+}

@@ -1,0 +1,11 @@
+.idea
+.vscode
+build
+/node_modules
+node_modules
+public
+config-overrides.js
+src/serviceWorker.js
+src/index.js
+server
+webpack
