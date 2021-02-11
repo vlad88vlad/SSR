@@ -4,23 +4,39 @@ import {ChunkExtractor} from '@loadable/server';
 import {renderToString} from 'react-dom/server';
 import {StaticRouter} from 'react-router-dom';
 import App from '../src/App'
+import {createServerContext} from '../src/useServerFetch/context'
 
-const renderApp = (req, res) => {
+const renderApp = async (req, res) => {
     const location = req.url;
     const context = {};
     const statsFile = path.resolve('./build/loadable-stats.json');
     const chunkExtractor = new ChunkExtractor({statsFile});
+
+    const {
+        ServerDataContext,
+        resolveData,
+    } = createServerContext();
+
     const jsx = chunkExtractor.collectChunks(
-        <StaticRouter context={context} location={location}>
-            <App />
-        </StaticRouter>
+        <ServerDataContext>
+            <StaticRouter context={context} location={location}>
+                <App />
+            </StaticRouter>
+        </ServerDataContext>
     );
 
+    renderToString(jsx);
+    const dataApi = await resolveData();
     const reactHtml = renderToString(jsx);
+
     const scriptTags = chunkExtractor.getScriptTags();
     const linkTags = chunkExtractor.getLinkTags();
     const styleTags = chunkExtractor.getStyleTags();
-    console.log(reactHtml);
+    console.log("reactHtml");
+    console.log(dataApi.data);
+    console.log(dataApi.toHtml());
+    const a = JSON.stringify(dataApi.data)
+    console.log(a);
     res.send(`
      <!DOCTYPE html>
         <html lang="en">
@@ -36,8 +52,9 @@ const renderApp = (req, res) => {
         </head>
         <body>
             <div id="root">${reactHtml}</div>
-           
+          
             ${scriptTags}
+            ${dataApi.toHtml()}
         </body>
         </html>
     `)

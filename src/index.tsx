@@ -1,11 +1,16 @@
-import React from 'react'
-import {render} from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
-import App from './App'
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import { createBrowserContext } from './useServerFetch/context';
+
+const BrowserDataContext = createBrowserContext();
 
 render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById('root')
+    <BrowserDataContext>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </BrowserDataContext>,
+    document.getElementById('root'),
 );

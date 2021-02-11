@@ -1,0 +1,18 @@
+.TodoItem {
+    display: flex;
+    padding: 4px 12px;
+    font-size: 18px;
+}
+
+.TodoItem .id {
+    margin-right: 8px;
+}
+
+.TodoItem .id:after {
+    content: '.';
+}
+
+.TodoItem .title {
+    flex: 1;
+    text-transform: capitalize;
+}

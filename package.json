@@ -38,6 +38,7 @@
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "@loadable/server": "^5.14.2",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
