@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es6", // es6 / es5
         "module": "esnext",// esnext / commonjs
-        "baseUrl": "./src",// ./src /src
+        "baseUrl": "./",// ./src /src
         "jsx": "react",// preserve /  react
         "strict": true,
         "sourceMap": true,
@@ -16,6 +16,11 @@
             "dom.iterable",
             "esnext"
         ],
+        "paths": {
+            "shared": [ "shared"],
+            "components": [ "./src/components/Title"]
+        },
+
         "allowJs": true,
         "moduleResolution": "node",
         "noEmit": false,
@@ -27,8 +32,10 @@
     },
     "include": [
         "./src",
+        "./src",
         "./webpack",
-        "./server"
+        "./server",
+        "./shared"
     ],
     "exclude": [
         "typings/browser.d.ts",

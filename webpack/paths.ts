@@ -38,6 +38,7 @@ export default {
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('.'),
     appServer: resolveApp('.'),
+    appShared: resolveApp('shared'),
     appTsConfig: resolveApp('tsconfig.json'),
     appNodeModules: resolveApp('node_modules'),
     publicUrlOrPath,

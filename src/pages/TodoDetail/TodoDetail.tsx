@@ -1,9 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Title from 'components/Title';
+import Title from 'src/components/Title';
+import withHelmet from 'shared/withHelmet';
 import { useTodoDetail } from './useTodoDetail';
 
-const TodoDetail = () => {
+const TodoDetail = ({ headTitle }) => {
     const { id } = useParams();
     const { data, loading } = useTodoDetail(id);
 
@@ -13,6 +14,7 @@ const TodoDetail = () => {
 
     return (
         <div>
+            {headTitle(data?.title)}
             <Title>
                 {data?.title}
             </Title>
@@ -20,4 +22,4 @@ const TodoDetail = () => {
     );
 };
 
-export default TodoDetail;
+export default withHelmet(TodoDetail, 'TodoDetail');

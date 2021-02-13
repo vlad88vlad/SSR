@@ -1,4 +1,4 @@
-import { useServerFetch } from 'useServerFetch/useServerFetch';
+import { useServerFetch } from 'shared/useServerFetch/useServerFetch';
 import axios from 'axios';
 
 export const useTodoDetail = (id) => {

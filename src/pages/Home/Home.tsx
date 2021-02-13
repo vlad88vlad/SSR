@@ -1,11 +1,10 @@
 import React from 'react';
+import withHelmet from 'shared/withHelmet';
 
-const Home = () => {
-    return (
-        <div>
-            Home
-        </div>
-    );
-};
+const Home = () => (
+    <div>
+        Home
+    </div>
+);
 
-export default Home;
+export default withHelmet(Home, 'home');

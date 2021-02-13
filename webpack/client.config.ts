@@ -13,6 +13,7 @@ import cssLoader from './loaders/css';
 import fileLoader from './loaders/file';
 import {IS_DEV, IS_PROD, getClientEnvironment} from './env';
 import paths from './paths';
+import alias from '../webpack.alias'
 
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const safePostCssParser = require('postcss-safe-parser');
@@ -61,11 +62,12 @@ const config = {
     },
     resolve: {
         alias: {
+            ...alias,
             process: 'process/browser',
         },
         extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
         modules: [
-            'node_modules', 'src',
+            'node_modules', '.',
         ],
     },
     module: {

@@ -1,12 +1,11 @@
 import React from 'react';
+import withHelmet from 'shared/withHelmet';
 import { useTodoList } from './useTodoList';
 import TodoItem from './components/TodoItem';
 
 const Todo = () => {
     const { data = [], loading } = useTodoList();
 
-    console.log(data);
-    console.log(data?.length);
     if (loading) {
         return 'loading...';
     }
@@ -22,4 +21,4 @@ const Todo = () => {
     );
 };
 
-export default Todo;
+export default withHelmet(Todo, 'Todo');

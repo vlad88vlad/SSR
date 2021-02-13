@@ -1,10 +1,10 @@
 import nodeExternals from 'webpack-node-externals';
+import alias from '../webpack.alias'
 import {IS_DEV} from './env';
 import fileLoader from './loaders/file';
-import cssLoader from './loaders/css';
 import jsLoader from './loaders/js';
+import cssLoader from './loaders/css';
 import paths from "./paths";
-
 
 const config = {
     name: 'server',
@@ -25,7 +25,8 @@ const config = {
         publicPath: paths.publicUrlOrPath,
     },
     resolve: {
-        modules: ['src', 'node_modules'],
+        alias,
+        modules: ['.', 'node_modules'],
         extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
 
     },

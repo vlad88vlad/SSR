@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Link, Route, Switch,
 } from 'react-router-dom';
+import withHelmet from 'shared/withHelmet';
 import routes from './router';
 
 const Info = () => (
@@ -20,4 +21,4 @@ const Info = () => (
     </div>
 );
 
-export default Info;
+export default withHelmet(Info, 'Info');

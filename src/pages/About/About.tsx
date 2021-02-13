@@ -1,4 +1,5 @@
 import React from 'react';
+import withHelmet from 'shared/withHelmet';
 
 const About = () => (
     <div>
@@ -6,4 +7,4 @@ const About = () => (
     </div>
 );
 
-export default About;
+export default withHelmet(About, 'about');

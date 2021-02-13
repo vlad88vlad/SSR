@@ -4,7 +4,8 @@ import {ChunkExtractor} from '@loadable/server';
 import {renderToString} from 'react-dom/server';
 import {StaticRouter} from 'react-router-dom';
 import App from '../src/App'
-import {createServerContext} from '../src/useServerFetch/context'
+import {createServerContext} from '../shared/useServerFetch/context'
+import Helmet from 'react-helmet';
 
 const renderApp = async (req, res) => {
     const location = req.url;
@@ -28,6 +29,7 @@ const renderApp = async (req, res) => {
     renderToString(jsx);
     const dataApi = await resolveData();
     const reactHtml = renderToString(jsx);
+    const helmet = Helmet.renderStatic();
 
     const scriptTags = chunkExtractor.getScriptTags();
     const linkTags = chunkExtractor.getLinkTags();
@@ -47,7 +49,8 @@ const renderApp = async (req, res) => {
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
            
-            ${linkTags}
+            ${helmet.title.toString()}
+            ${helmet.meta.toString()}
             ${styleTags}
         </head>
         <body>
